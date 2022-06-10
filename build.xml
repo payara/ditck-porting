@@ -63,7 +63,7 @@
 	<target name="downloadDependencies">
 		<get src="https://repo1.maven.org/maven2/junit/junit/4.12/junit-4.12.jar" verbose="on" dest="lib"/>
 		<get src="https://repo1.maven.org/maven2/org/slf4j/slf4j-simple/1.7.25/slf4j-simple-1.7.25.jar" verbose="on" dest="lib"/>
-		<get src="https://repo1.maven.org/maven2/org/jboss/arquillian/container/arquillian-weld-embedded/3.0.0.Alpha1/arquillian-weld-embedded-3.0.0.Alpha1.jar" verbose="on" dest="${porting.home}"/>
+		<get src="https://repo1.maven.org/maven2/org/jboss/arquillian/container/arquillian-weld-embedded/3.0.2.Final/arquillian-weld-embedded-3.0.2.Final.jar" verbose="on" dest="${porting.home}"/>
 	</target>
 	<target name="print-classpath">
 

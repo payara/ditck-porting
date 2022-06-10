@@ -40,17 +40,17 @@ ant -version
 REPORT=${WORKSPACE}/330tck-report
 mkdir -p ${REPORT}
 if [ -z "${JAKARTA_INJECT_TCK_URL}" ];then
-  JAKARTA_INJECT_TCK_URL=http://download.eclipse.org/ee4j/cdi/jakarta.inject-tck-2.0.1-bin.zip
+  JAKARTA_INJECT_TCK_URL=http://download.eclipse.org/ee4j/cdi/inject/2.0/jakarta.inject-tck-2.0.1-bin.zip
 fi
 if [ -z "${JSR299_TCK_URL}" ];then
-  JSR299_TCK_URL=http://download.eclipse.org/ee4j/cdi/3.0/cdi-tck-3.0.3-dist.zip
+  JSR299_TCK_URL=http://download.eclipse.org/ee4j/cdi/4.0/cdi-tck-4.0.4-dist.zip
 fi
 
 if [ -z "${JAKARTA_INJECT_VERSION}" ]; then
   JAKARTA_INJECT_VERSION="2.0.1"
 fi
 if [ -z "${JSR299_TCK_VERSION}" ]; then
-  JSR299_TCK_VERSION="3.0.3"
+  JSR299_TCK_VERSION="4.0.4"
 fi
 
 wget ${JAKARTA_INJECT_TCK_URL} -O ${WORKSPACE}/jakarta.inject-tck.zip 
@@ -59,7 +59,7 @@ unzip ${WORKSPACE}/jakarta.inject-tck.zip  -d ${WORKSPACE}
 unzip ${WORKSPACE}/jsr299-tck.zip -d ${WORKSPACE}
 
 # Install the porting lib
-cd ${WORKSPACE}/cdi-tck-3.0.3/weld/porting-package-lib
+cd ${WORKSPACE}/cdi-tck-4.0.4/weld/porting-package-lib
 mvn --global-settings ${WORKSPACE}/settings.xml clean install
 echo "+++ Installed CDI TCK porting libs"
 ls target/dependency
@@ -69,7 +69,7 @@ cd ${WORKSPACE}
 sed -i "s#tck.home=.*#tck.home=${WORKSPACE}/jakarta.inject-tck-2.0.1#g" ${TS_HOME}/build.properties
 sed -i "s#porting.home=.*#porting.home=${TS_HOME}#g" ${TS_HOME}/build.properties
 sed -i "s#glassfish.home=.*#glassfish.home=${WORKSPACE}/payara6/glassfish#g" ${TS_HOME}/build.properties
-sed -i "s#299.tck.home=.*#299.tck.home=${WORKSPACE}/cdi-tck-3.0.3#g" ${TS_HOME}/build.properties
+sed -i "s#299.tck.home=.*#299.tck.home=${WORKSPACE}/cdi-tck-4.0.4#g" ${TS_HOME}/build.properties
 sed -i "s#report.dir=.*#report.dir=${REPORT}#g" ${TS_HOME}/build.properties
 
 #Run Tests
