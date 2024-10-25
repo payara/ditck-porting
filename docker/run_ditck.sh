@@ -47,10 +47,10 @@ if [ -z "${JSR299_TCK_URL}" ];then
 fi
 
 if [ -z "${JAKARTA_INJECT_VERSION}" ]; then
-  JAKARTA_INJECT_VERSION="2.0.1"
+  JAKARTA_INJECT_VERSION="2.0.2"
 fi
 if [ -z "${JSR299_TCK_VERSION}" ]; then
-  JSR299_TCK_VERSION="4.0.4"
+  JSR299_TCK_VERSION="4.0.13"
 fi
 
 wget ${JAKARTA_INJECT_TCK_URL} -O ${WORKSPACE}/jakarta.inject-tck.zip 
@@ -66,10 +66,10 @@ ls target/dependency
 cd ${WORKSPACE}
 
 #Edit test properties
-sed -i "s#tck.home=.*#tck.home=${WORKSPACE}/jakarta.inject-tck-2.0.1#g" ${TS_HOME}/build.properties
+sed -i "s#tck.home=.*#tck.home=${WORKSPACE}/jakarta.inject-tck-2.0.2#g" ${TS_HOME}/build.properties
 sed -i "s#porting.home=.*#porting.home=${TS_HOME}#g" ${TS_HOME}/build.properties
-sed -i "s#glassfish.home=.*#glassfish.home=${WORKSPACE}/payara6/glassfish#g" ${TS_HOME}/build.properties
-sed -i "s#299.tck.home=.*#299.tck.home=${WORKSPACE}/cdi-tck-4.0.4#g" ${TS_HOME}/build.properties
+sed -i "s#glassfish.home=.*#glassfish.home=${WORKSPACE}/payara7/glassfish#g" ${TS_HOME}/build.properties
+sed -i "s#299.tck.home=.*#299.tck.home=${WORKSPACE}/cdi-tck-4.0.13#g" ${TS_HOME}/build.properties
 sed -i "s#report.dir=.*#report.dir=${REPORT}#g" ${TS_HOME}/build.properties
 
 #Run Tests
